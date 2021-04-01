@@ -36,6 +36,24 @@ function App() {
 		});
 	};
 
+	const handleOnMouseEnterColumn = (className) => {
+		const element = ref.current;
+		TweenMax.to(element.querySelector(`.${className}`), 0.5, {
+			y: -10,
+			scale: 1.03,
+			boxShadow: '0 0 20px 0px rgba(0, 0, 0, 0.35)',
+		});
+	};
+
+	const handleOnMouseLeaveColumn = (className) => {
+		const element = ref.current;
+		TweenMax.to(element.querySelector(`.${className}`), 0.5, {
+			y: 0,
+			scale: 1,
+			boxShadow: '0 0 20px 0px rgba(0, 0, 0, 0)',
+		});
+	};
+
 	const handleOnClickBurgerMenu = () => timeLine.play(0);
 
 	const handleCloseBurgerMenu = () => timeLine.reverse(0);
@@ -128,7 +146,10 @@ function App() {
 					<div className='blueDividerLine'></div>
 				</hgroup>
 				<div className='fourColContainer container'>
-					<div className='fourColItem'>
+					<div
+						className='fourColItem one'
+						onMouseEnter={() => handleOnMouseEnterColumn('one')}
+						onMouseLeave={() => handleOnMouseLeaveColumn('one')}>
 						{' '}
 						<img src={factory} alt='' />
 						<div className='fourColText'>
@@ -143,7 +164,10 @@ function App() {
 							</a>{' '}
 						</div>
 					</div>
-					<div className='fourColItem'>
+					<div
+						className='fourColItem two'
+						onMouseEnter={() => handleOnMouseEnterColumn('two')}
+						onMouseLeave={() => handleOnMouseLeaveColumn('two')}>
 						{' '}
 						<img src={equipment} alt='' />
 						<div className='fourColText'>
@@ -158,7 +182,10 @@ function App() {
 							</a>{' '}
 						</div>
 					</div>
-					<div className='fourColItem'>
+					<div
+						className='fourColItem tree'
+						onMouseEnter={() => handleOnMouseEnterColumn('tree')}
+						onMouseLeave={() => handleOnMouseLeaveColumn('tree')}>
 						{' '}
 						<img src={team} alt='' />
 						<div className='fourColText'>
@@ -173,7 +200,10 @@ function App() {
 							</a>{' '}
 						</div>
 					</div>
-					<div className='fourColItem'>
+					<div
+						className='fourColItem four'
+						onMouseEnter={() => handleOnMouseEnterColumn('four')}
+						onMouseLeave={() => handleOnMouseLeaveColumn('four')}>
 						{' '}
 						<img src={training} alt='' />
 						<div className='fourColText'>
