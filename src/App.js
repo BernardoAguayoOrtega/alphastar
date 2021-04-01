@@ -54,6 +54,24 @@ function App() {
 		});
 	};
 
+	const handleOnMouseEnterServiceBox = (className) => {
+		const element = ref.current;
+		console.log(`.serviceBoxInner > .${className}`);
+		TweenMax.to(element.querySelector(`.serviceBox .${className}`), 0.5, {
+			y: 0,
+			opacity: 1,
+		});
+	};
+
+	const handleOnMouseLeaveServiceBox = (className) => {
+		const element = ref.current;
+		console.log(`.serviceBoxInner > .${className}`);
+		TweenMax.to(element.querySelector(`.serviceBox .${className}`), 0.5, {
+			y: 200,
+			opacity: 0,
+		});
+	};
+
 	const handleOnClickBurgerMenu = () => timeLine.play(0);
 
 	const handleCloseBurgerMenu = () => timeLine.reverse(0);
@@ -91,6 +109,15 @@ function App() {
 			{ y: 80, opacity: 0 },
 			{ y: 0, opacity: 1, delay: 1.6, ease: Back.easeInOut },
 		);
+	}, []);
+
+	useEffect(() => {
+		const element = ref.current;
+
+		TweenMax.set(element.querySelectorAll('.serviceBoxInner'), {
+			y: 200,
+			opacity: 0,
+		});
 	}, []);
 
 	return (
@@ -221,8 +248,11 @@ function App() {
 				</div>
 			</section>
 			<section className='services'>
-				<div className='serviceBox'>
-					<div className='serviceBoxInner'>
+				<div
+					className='serviceBox'
+					onMouseLeave={() => handleOnMouseLeaveServiceBox('one')}
+					onMouseEnter={() => handleOnMouseEnterServiceBox('one')}>
+					<div className='serviceBoxInner one'>
 						<h2>We are Dedicated</h2>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
@@ -230,8 +260,11 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div className='serviceBox'>
-					<div className='serviceBoxInner'>
+				<div
+					className='serviceBox'
+					onMouseLeave={() => handleOnMouseLeaveServiceBox('two')}
+					onMouseEnter={() => handleOnMouseEnterServiceBox('two')}>
+					<div className='serviceBoxInner two'>
 						<h2>We are Responsive</h2>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
@@ -239,8 +272,11 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div className='serviceBox'>
-					<div className='serviceBoxInner'>
+				<div
+					className='serviceBox'
+					onMouseLeave={() => handleOnMouseLeaveServiceBox('tree')}
+					onMouseEnter={() => handleOnMouseEnterServiceBox('tree')}>
+					<div className='serviceBoxInner tree'>
 						<h2>We are Dynamic</h2>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
