@@ -8,7 +8,7 @@ import equipment from './images/equipment.jpg';
 import team from './images/team.jpg';
 import training from './images/training.jpg';
 import { useEffect, useRef, useState } from 'react';
-import { TweenMax, TimelineMax } from 'gsap/all';
+import { TweenMax, TimelineMax, Back } from 'gsap/all';
 
 function App() {
 	const ref = useRef(null);
@@ -36,6 +36,10 @@ function App() {
 		});
 	};
 
+	const handleOnClickBurgerMenu = () => timeLine.play(0);
+
+	const handleCloseBurgerMenu = () => timeLine.reverse(0);
+
 	useEffect(() => {
 		const element = ref?.current;
 
@@ -53,9 +57,23 @@ function App() {
 			);
 	}, []);
 
-	const handleOnClickBurgerMenu = () => timeLine.play(0);
+	useEffect(() => {
+		const element = ref.current;
 
-	const handleCloseBurgerMenu = () => timeLine.reverse(0);
+		TweenMax.fromTo(
+			element.querySelector('#hero h1'),
+			0.6,
+			{ y: 80, opacity: 0 },
+			{ y: 0, opacity: 1, delay: 1 },
+		);
+
+		TweenMax.fromTo(
+			element.querySelector('#hero .learnMoreButton'),
+			0.6,
+			{ y: 80, opacity: 0 },
+			{ y: 0, opacity: 1, delay: 1.6, ease: Back.easeInOut },
+		);
+	}, []);
 
 	return (
 		<div className='App' ref={ref}>
