@@ -8,7 +8,7 @@ import equipment from './images/equipment.jpg';
 import team from './images/team.jpg';
 import training from './images/training.jpg';
 import { useRef } from 'react';
-import { TweenMax } from 'gsap/all';
+import { TweenMax, TimelineMax } from 'gsap/all';
 
 function App() {
 	const ref = useRef(null);
@@ -32,6 +32,24 @@ function App() {
 		TweenMax.to(element.querySelector('.burgerLine:first-child'), 0.2, {
 			x: -10,
 		});
+	};
+
+	const handleOnClickBurgerMenu = () => {
+		const element = ref.current;
+		const timeLine = new TimelineMax();
+
+		timeLine
+			.to(element.querySelector('nav'), 0.3, { autoAlpha: 1 })
+			.staggerFromTo(
+				element.querySelectorAll('nav li'),
+				0.5,
+				{
+					y: -100,
+					opacity: 0,
+				},
+				{ y: 0, opacity: 1 },
+				0.1,
+			);
 	};
 
 	return (
@@ -59,6 +77,7 @@ function App() {
 				</nav>
 				<div
 					className='burgerIcon'
+					onClick={handleOnClickBurgerMenu}
 					onMouseLeave={handleOnMouseLeaveBurgerMenu}
 					onMouseEnter={handleOnMouseEnterBurgerMenu}>
 					<div className='burgerLine'></div>
