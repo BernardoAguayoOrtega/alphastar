@@ -104,7 +104,6 @@ nav {
 
 #hero {
   background-size: cover;
-  background-image: url(./images/banner-bg.jpg);
   height: 85vh;
   display: flex;
   flex-flow: column wrap;

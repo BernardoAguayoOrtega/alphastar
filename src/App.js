@@ -1,5 +1,14 @@
 import './App.css';
 
+import logo from './images/alphastarlogo.svg';
+import circle from './images/circle-divider.svg';
+import left from './images/cog-left.svg';
+import right from './images/cog-right.svg';
+import factory from './images/factory.jpg';
+import equipment from './images/equipment.jpg';
+import team from './images/team.jpg';
+import training from './images/training.jpg';
+
 function App() {
 	return (
 		<div className='App'>
@@ -31,12 +40,12 @@ function App() {
 				</div>
 			</header>
 			<section id='hero'>
-				<img class='logo' src='images/alphastarlogo.svg' alt='' />
+				<img class='logo' src={logo} alt='' />
 				<h1>We are AlphaStar</h1>
 				<a href='#0' class='learnMoreButton'>
 					Learn more
 				</a>
-				<img class='ovalDivider' src='images/circle-divider.svg' alt='' />
+				<img class='ovalDivider' src={circle} alt='' />
 			</section>
 			<section class='fourColSection'>
 				<hgroup>
@@ -50,7 +59,7 @@ function App() {
 				<div class='fourColContainer container'>
 					<div class='fourColItem'>
 						{' '}
-						<img src='images/factory.jpg' alt='' />
+						<img src={factory} alt='' />
 						<div class='fourColText'>
 							<h3>The Factory</h3>
 							<p>
@@ -65,7 +74,7 @@ function App() {
 					</div>
 					<div class='fourColItem'>
 						{' '}
-						<img src='images/equipment.jpg' alt='' />
+						<img src={equipment} alt='' />
 						<div class='fourColText'>
 							<h3>The Equipment</h3>
 							<p>
@@ -80,7 +89,7 @@ function App() {
 					</div>
 					<div class='fourColItem'>
 						{' '}
-						<img src='images/team.jpg' alt='' />
+						<img src={team} alt='' />
 						<div class='fourColText'>
 							<h3>The Team</h3>
 							<p>
@@ -95,7 +104,7 @@ function App() {
 					</div>
 					<div class='fourColItem'>
 						{' '}
-						<img src='images/training.jpg' alt='' />
+						<img src={training} alt='' />
 						<div class='fourColText'>
 							<h3>The Training</h3>
 							<p>
@@ -172,8 +181,8 @@ function App() {
 						</p>
 					</div>
 					<div class='cogImageCol'>
-						<img class='cogLeft' src='images/cog-left.svg' alt='' />
-						<img class='cogRight' src='images/cog-right.svg' alt='' />
+						<img class='cogLeft' src={left} alt='' />
+						<img class='cogRight' src={right} alt='' />
 					</div>
 				</div>
 			</section>
