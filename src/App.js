@@ -7,11 +7,13 @@ import factory from './images/factory.jpg';
 import equipment from './images/equipment.jpg';
 import team from './images/team.jpg';
 import training from './images/training.jpg';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TweenMax, TimelineMax } from 'gsap/all';
 
 function App() {
 	const ref = useRef(null);
+	const [timeLine] = useState(new TimelineMax({ paused: true }));
+
 	const handleOnMouseLeaveBurgerMenu = () => {
 		const element = ref.current;
 		TweenMax.to(element.querySelector('.burgerLine:first-child'), 0.2, {
@@ -34,9 +36,8 @@ function App() {
 		});
 	};
 
-	const handleOnClickBurgerMenu = () => {
-		const element = ref.current;
-		const timeLine = new TimelineMax();
+	useEffect(() => {
+		const element = ref?.current;
 
 		timeLine
 			.to(element.querySelector('nav'), 0.3, { autoAlpha: 1 })
@@ -50,7 +51,11 @@ function App() {
 				{ y: 0, opacity: 1 },
 				0.1,
 			);
-	};
+	}, []);
+
+	const handleOnClickBurgerMenu = () => timeLine.play(0);
+
+	const handleCloseBurgerMenu = () => timeLine.reverse(0);
 
 	return (
 		<div className='App' ref={ref}>
@@ -73,7 +78,9 @@ function App() {
 							<a href='#0'>Contact us</a>
 						</li>
 					</ul>
-					<p className='closeButton'>X</p>
+					<p className='closeButton' onClick={handleCloseBurgerMenu}>
+						X
+					</p>
 				</nav>
 				<div
 					className='burgerIcon'
