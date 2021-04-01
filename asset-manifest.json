@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0e8243e8.chunk.css",
+    "main.js": "/static/js/main.81a1e25e.chunk.js",
+    "main.js.map": "/static/js/main.81a1e25e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ba0524f2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ba0524f2.js.map",
+    "static/js/2.52ca28af.chunk.js": "/static/js/2.52ca28af.chunk.js",
+    "static/js/2.52ca28af.chunk.js.map": "/static/js/2.52ca28af.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.0e8243e8.chunk.css.map": "/static/css/main.0e8243e8.chunk.css.map",
+    "static/js/2.52ca28af.chunk.js.LICENSE.txt": "/static/js/2.52ca28af.chunk.js.LICENSE.txt",
+    "static/media/alphastarlogo.3468fca4.svg": "/static/media/alphastarlogo.3468fca4.svg",
+    "static/media/App.css": "/static/media/truck.01dbde5b.jpg",
+    "static/media/circle-divider.eb1a3f26.svg": "/static/media/circle-divider.eb1a3f26.svg",
+    "static/media/cog-left.681c49c1.svg": "/static/media/cog-left.681c49c1.svg",
+    "static/media/cog-right.4c2257fd.svg": "/static/media/cog-right.4c2257fd.svg",
+    "static/media/equipment.6ffac398.jpg": "/static/media/equipment.6ffac398.jpg",
+    "static/media/factory.8ffc17c8.jpg": "/static/media/factory.8ffc17c8.jpg",
+    "static/media/team.81060b7e.jpg": "/static/media/team.81060b7e.jpg",
+    "static/media/training.ad2d05a2.jpg": "/static/media/training.ad2d05a2.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ba0524f2.js",
+    "static/js/2.52ca28af.chunk.js",
+    "static/css/main.0e8243e8.chunk.css",
+    "static/js/main.81a1e25e.chunk.js"
+  ]
+}
