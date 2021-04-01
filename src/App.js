@@ -1,5 +1,4 @@
 import './App.css';
-
 import logo from './images/alphastarlogo.svg';
 import circle from './images/circle-divider.svg';
 import left from './images/cog-left.svg';
@@ -8,13 +7,38 @@ import factory from './images/factory.jpg';
 import equipment from './images/equipment.jpg';
 import team from './images/team.jpg';
 import training from './images/training.jpg';
+import { useRef } from 'react';
+import { TweenMax } from 'gsap/all';
 
 function App() {
+	const ref = useRef(null);
+	const handleOnMouseLeaveBurgerMenu = () => {
+		const element = ref.current;
+		TweenMax.to(element.querySelector('.burgerLine:first-child'), 0.2, {
+			x: 0,
+		});
+
+		TweenMax.to(element.querySelector('.burgerLine:last-child'), 0.2, {
+			x: 0,
+		});
+	};
+
+	const handleOnMouseEnterBurgerMenu = () => {
+		const element = ref.current;
+		TweenMax.to(element.querySelector('.burgerLine:last-child'), 0.2, {
+			x: 10,
+		});
+
+		TweenMax.to(element.querySelector('.burgerLine:first-child'), 0.2, {
+			x: -10,
+		});
+	};
+
 	return (
-		<div className='App'>
+		<div className='App' ref={ref}>
 			<header>
 				<nav>
-					<ul class='navMenu'>
+					<ul className='navMenu'>
 						<li>
 							<a href='#0'>Home</a>
 						</li>
@@ -31,97 +55,100 @@ function App() {
 							<a href='#0'>Contact us</a>
 						</li>
 					</ul>
-					<p class='closeButton'>X</p>
+					<p className='closeButton'>X</p>
 				</nav>
-				<div class='burgerIcon'>
-					<div class='burgerLine'></div>
-					<div class='burgerLine'></div>
-					<div class='burgerLine'></div>
+				<div
+					className='burgerIcon'
+					onMouseLeave={handleOnMouseLeaveBurgerMenu}
+					onMouseEnter={handleOnMouseEnterBurgerMenu}>
+					<div className='burgerLine'></div>
+					<div className='burgerLine'></div>
+					<div className='burgerLine'></div>
 				</div>
 			</header>
 			<section id='hero'>
-				<img class='logo' src={logo} alt='' />
+				<img className='logo' src={logo} alt='' />
 				<h1>We are AlphaStar</h1>
-				<a href='#0' class='learnMoreButton'>
+				<a href='#0' className='learnMoreButton'>
 					Learn more
 				</a>
-				<img class='ovalDivider' src={circle} alt='' />
+				<img className='ovalDivider' src={circle} alt='' />
 			</section>
-			<section class='fourColSection'>
+			<section className='fourColSection'>
 				<hgroup>
 					<h2>Over 30 years experience</h2>
 					<h3>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.
 						Lorem dolor amet elit.{' '}
 					</h3>
-					<div class='blueDividerLine'></div>
+					<div className='blueDividerLine'></div>
 				</hgroup>
-				<div class='fourColContainer container'>
-					<div class='fourColItem'>
+				<div className='fourColContainer container'>
+					<div className='fourColItem'>
 						{' '}
 						<img src={factory} alt='' />
-						<div class='fourColText'>
+						<div className='fourColText'>
 							<h3>The Factory</h3>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad.{' '}
 							</p>{' '}
-							<a href='#0' class='fourColButton'>
+							<a href='#0' className='fourColButton'>
 								Learn more
 							</a>{' '}
 						</div>
 					</div>
-					<div class='fourColItem'>
+					<div className='fourColItem'>
 						{' '}
 						<img src={equipment} alt='' />
-						<div class='fourColText'>
+						<div className='fourColText'>
 							<h3>The Equipment</h3>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad.{' '}
 							</p>{' '}
-							<a href='#0' class='fourColButton'>
+							<a href='#0' className='fourColButton'>
 								Learn more
 							</a>{' '}
 						</div>
 					</div>
-					<div class='fourColItem'>
+					<div className='fourColItem'>
 						{' '}
 						<img src={team} alt='' />
-						<div class='fourColText'>
+						<div className='fourColText'>
 							<h3>The Team</h3>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad.{' '}
 							</p>{' '}
-							<a href='#0' class='fourColButton'>
+							<a href='#0' className='fourColButton'>
 								Learn more
 							</a>{' '}
 						</div>
 					</div>
-					<div class='fourColItem'>
+					<div className='fourColItem'>
 						{' '}
 						<img src={training} alt='' />
-						<div class='fourColText'>
+						<div className='fourColText'>
 							<h3>The Training</h3>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 								enim ad.{' '}
 							</p>{' '}
-							<a href='#0' class='fourColButton'>
+							<a href='#0' className='fourColButton'>
 								Learn more
 							</a>{' '}
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class='services'>
-				<div class='serviceBox'>
-					<div class='serviceBoxInner'>
+			<section className='services'>
+				<div className='serviceBox'>
+					<div className='serviceBoxInner'>
 						<h2>We are Dedicated</h2>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
@@ -129,8 +156,8 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div class='serviceBox'>
-					<div class='serviceBoxInner'>
+				<div className='serviceBox'>
+					<div className='serviceBoxInner'>
 						<h2>We are Responsive</h2>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
@@ -138,8 +165,8 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div class='serviceBox'>
-					<div class='serviceBoxInner'>
+				<div className='serviceBox'>
+					<div className='serviceBoxInner'>
 						<h2>We are Dynamic</h2>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
@@ -148,18 +175,20 @@ function App() {
 					</div>
 				</div>
 			</section>
-			<section class='cogSection'>
+			<section className='cogSection'>
 				<hgroup>
 					<h2>Our Cogs Never Stop Turning...</h2>
 					<h3>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 						eiusmod tempor incididunt ut labore et
 					</h3>
-					<div class='blueDividerLine'></div>
+					<div className='blueDividerLine'></div>
 				</hgroup>
-				<div class='cogTwoCols container'>
-					<div class='cogTextCol'>
-						<h3 class='introText'>We strive for 100% customer satisfaction</h3>
+				<div className='cogTwoCols container'>
+					<div className='cogTextCol'>
+						<h3 className='introText'>
+							We strive for 100% customer satisfaction
+						</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -180,9 +209,9 @@ function App() {
 							aut fugit.{' '}
 						</p>
 					</div>
-					<div class='cogImageCol'>
-						<img class='cogLeft' src={left} alt='' />
-						<img class='cogRight' src={right} alt='' />
+					<div className='cogImageCol'>
+						<img className='cogLeft' src={left} alt='' />
+						<img className='cogRight' src={right} alt='' />
 					</div>
 				</div>
 			</section>
