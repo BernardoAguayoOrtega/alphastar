@@ -8,7 +8,7 @@ import equipment from './images/equipment.jpg';
 import team from './images/team.jpg';
 import training from './images/training.jpg';
 import { useEffect, useRef, useState } from 'react';
-import { TweenMax, TimelineMax, Back } from 'gsap/all';
+import { TweenMax, TimelineMax, Back, Linear } from 'gsap/all';
 
 function App() {
 	const ref = useRef(null);
@@ -56,7 +56,6 @@ function App() {
 
 	const handleOnMouseEnterServiceBox = (className) => {
 		const element = ref.current;
-		console.log(`.serviceBoxInner > .${className}`);
 		TweenMax.to(element.querySelector(`.serviceBox .${className}`), 0.5, {
 			y: 0,
 			opacity: 1,
@@ -65,7 +64,6 @@ function App() {
 
 	const handleOnMouseLeaveServiceBox = (className) => {
 		const element = ref.current;
-		console.log(`.serviceBoxInner > .${className}`);
 		TweenMax.to(element.querySelector(`.serviceBox .${className}`), 0.5, {
 			y: 200,
 			opacity: 0,
@@ -117,6 +115,22 @@ function App() {
 		TweenMax.set(element.querySelectorAll('.serviceBoxInner'), {
 			y: 200,
 			opacity: 0,
+		});
+	}, []);
+
+	useEffect(() => {
+		const element = ref.current;
+
+		TweenMax.to(element.querySelectorAll('.cogLeft'), 7, {
+			rotation: 360,
+			repeat: -1,
+			ease: Linear.easeNone,
+		});
+
+		TweenMax.to(element.querySelectorAll('.cogRight'), 7, {
+			rotation: -360,
+			repeat: -1,
+			ease: Linear.easeNone,
 		});
 	}, []);
 
